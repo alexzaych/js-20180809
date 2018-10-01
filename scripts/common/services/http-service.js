@@ -1,4 +1,4 @@
-const API_URL = 'https://alexzaych.github.io/phones/js-20180809';
+const API_URL = 'https://alexzaych.github.io/js-20180809/phones';
 
 const HttpService = {
   sendRequest(url) {
