@@ -9,7 +9,7 @@ export default class PhoneFilter extends Component {
 
     this.on('input', '[data-input="sort-by-name"]', (event) => {
         var input = document.querySelector('[data-input="sort-by-name"]')
-        this._trigger('input', input.value);
+        this._trigger('filterByName', input.value);
      });
   }
 
