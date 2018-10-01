@@ -93,7 +93,7 @@ export default class PhonesPage {
       element: this._element.querySelector('[data-component="phone-filter"]')
     })
 
-    this._filter.on('input', (event) => {
+    this._filter.on('filterByName', (event) => {
       PhoneService.getPhones({query: event.detail, orderField: null}).then((phones) => {
         this._catalog.showPhones(phones);
       });
