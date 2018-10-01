@@ -6,13 +6,18 @@ export default class PhoneFilter extends Component {
     this._element = element;
 
     this._render();
+
+    this.on('input', '[data-input="sort-by-name"]', (event) => {
+        var input = document.querySelector('[data-input="sort-by-name"]')
+        this._trigger('input', input.value);
+     });
   }
 
   _render() {
     this._element.innerHTML = `
 <p>
     Search:
-    <input>
+    <input data-input="sort-by-name">
 </p>
 
 <p>

@@ -1,13 +1,16 @@
 import HttpService from '../../common/services/http-service.js';
 
 const PhoneService = {
-  getPhones({ query = '', orderField = '' } = {}) {
-    return HttpService.sendRequest('/phones.json').then(phones => {
-        let filteredPhones = this._filter(phones, query);
-        let sortedPhones = this._sort(filteredPhones, orderField);
+     getPhones({ query = '', orderField = '' } = {}) {
+      return HttpService.sendRequest('/phones.json').then(phones => {
+          if (query === '') return phones;
+          let filteredPhones = this._filter(phones, query);
+          // let sortedPhones = this._sort(filteredPhones, orderField);
 
-        return sortedPhones;
-      });
+          // return sortedPhones;
+          console.log(filteredPhones);
+          return filteredPhones;
+        });
   },
 
   getPhone(phoneId) {
@@ -15,7 +18,13 @@ const PhoneService = {
   },
 
   _filter(phones, query) {
-    return phones;
+    // var filteredArr = phones.filter((value) => {      
+    //   return value.name.indexOf(query) !== -1}); 
+    // return filteredArr;
+
+    return phones.filter((value) => {      
+      return value.name.indexOf(query) !== -1
+    });
   },
 
   _sort(phones, orderField) {

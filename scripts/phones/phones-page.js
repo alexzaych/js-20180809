@@ -92,6 +92,12 @@ export default class PhonesPage {
     this._filter = new PhoneFilter({
       element: this._element.querySelector('[data-component="phone-filter"]')
     })
+
+    this._filter.on('input', (event) => {
+      PhoneService.getPhones({query: event.detail, orderField: null}).then((phones) => {
+        this._catalog.showPhones(phones);
+      });
+    });
   }
 
   _render() {
